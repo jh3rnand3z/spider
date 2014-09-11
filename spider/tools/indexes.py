@@ -1,4 +1,7 @@
 
+
+
+
 def ensure_indexes(db):
     '''
         Ensure database indexes
