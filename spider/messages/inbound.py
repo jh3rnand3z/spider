@@ -1,4 +1,3 @@
-
 import uuid
 
 from schematics import models
