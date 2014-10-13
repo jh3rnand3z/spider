@@ -61,7 +61,10 @@ if __name__ == '__main__':
 
         [
             (r'/', IndexHandler),
-            (r'/inbound/?', inbound.Handler)
+
+            (r'/inbound', inbound.Handler),
+            (r'/inbound/?', inbound.Handler),
+            (r'/inbound/(?P<call_uuid>.+)/?', inbound.Handler)
         ],
 
         db=db,
