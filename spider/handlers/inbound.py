@@ -14,7 +14,7 @@ from spider.tools import errors
 from spider.handlers import BaseHandler
 
 
-class Handler(BaseHandler, inbound.inbound):
+class Handler(BaseHandler, inbound.Inbound):
     '''
         Inbound resource handler
     '''

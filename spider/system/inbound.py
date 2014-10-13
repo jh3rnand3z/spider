@@ -18,7 +18,7 @@ import uuid
 
 from tornado import gen
 
-from howler.messages import inbound
+from spider.messages import inbound
 
 
 class Inbound(object):
