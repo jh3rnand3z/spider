@@ -1,3 +1,15 @@
+'''
+    Spider inbound monkey
+'''
+
+# This file is part of spider.
+
+# Distributed under the terms of the last AGPL License.
+# The full license is in the file LICENCE, distributed as part of this software.
+
+__author__ = 'Jean Chassoul'
+
+
 import os
 import logging
 import motor
@@ -6,10 +18,10 @@ from tornado import ioloop
 from tornado import gen
 from tornado import web
 
-from howler.handlers import outbound
+from spider.handlers import inbound
 
-from howler.tools import options
-from howler.tools import indexes
+from spider.tools import options
+from spider.tools import indexes
 
 
 class IndexHandler(web.RequestHandler):
@@ -18,15 +30,25 @@ class IndexHandler(web.RequestHandler):
     '''
 
     def get(self):
-        self.render('index.html', test="Outbound Campaigns")
+        self.render('index.html', test="Inbound Campaigns")
 
 if __name__ == '__main__':
     '''
-        Howler outbound campaigns
+        Spider inbound campaigns
     '''
     opts = options.options()
 
-    db = motor.MotorClient().howler
+    # Set document database
+    document = motor.MotorClient(opts.mongo_host, opts.mongo_port).howler
+
+    # Set SQL database
+    #sql = momoko.Pool(
+    #    dsn='dbname=asterisk user=postgres',
+    #    size=1
+    #)
+
+    # Set default database
+    db = document
 
     if opts.ensure_indexes:
         logging.info('Ensuring indexes...')
@@ -39,7 +61,7 @@ if __name__ == '__main__':
 
         [
             (r'/', IndexHandler),
-            (r'/outbound/?', outbound.Handler)
+            (r'/inbound/?', inbound.Handler)
         ],
 
         db=db,

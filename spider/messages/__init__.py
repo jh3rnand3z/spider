@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 '''
-    Mango system models and messages.
+    Spider system models and messages.
 '''
 
-# This file is part of mango.
+# This file is part of spider.
 
 # Distributed under the terms of the last AGPL License.
 # The full license is in the file LICENCE, distributed as part of this software.

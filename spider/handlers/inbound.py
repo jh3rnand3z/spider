@@ -2,19 +2,21 @@ import time
 import arrow
 import motor
 
+import logging
+
 from tornado import gen
 from tornado import web
 
-from howler.system import outbound
-from howler.messages import outbound as models
+from howler.system import inbound
+from howler.messages import inbound as models
 from howler.tools import errors
 
 from howler.handlers import BaseHandler
 
 
-class Handler(BaseHandler, outbound.Outbound):
+class Handler(BaseHandler, inbound.inbound):
     '''
-        Outbound resource handler
+        Inbound resource handler
     '''
 
     @gen.coroutine
@@ -46,9 +48,9 @@ class Handler(BaseHandler, outbound.Outbound):
             pass
 
         try:
-            outbound_id = query_args.get('AccountID')[0]
+            inbound_id = query_args.get('AccountID')[0]
         except IndexError:
-            # raise missing outbound id
+            # raise missing inbound id
             pass
 
         first_name = query_args.get('firstName')[0]
@@ -59,7 +61,7 @@ class Handler(BaseHandler, outbound.Outbound):
 
 
         struct = {
-            'account': outbound_id,
+            'account': inbound_id,
             'channel': dial_number,
             'callerid': callerid,
             'max_retries': max_retries,
