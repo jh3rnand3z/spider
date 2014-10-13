@@ -1,7 +1,7 @@
 from tornado import gen
 from tornado import web
 
-from howler.tools import errors
+from spider.tools import errors
 
 
 class BaseHandler(web.RequestHandler):

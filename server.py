@@ -39,7 +39,7 @@ if __name__ == '__main__':
     opts = options.options()
 
     # Set document database
-    document = motor.MotorClient(opts.mongo_host, opts.mongo_port).howler
+    document = motor.MotorClient(opts.mongo_host, opts.mongo_port).spider
 
     # Set SQL database
     #sql = momoko.Pool(

@@ -4,7 +4,7 @@ import tornado.options
 
 # ownership missing
 
-config_path = 'howler.conf'
+config_path = 'spider.conf'
 
 def options():
     '''

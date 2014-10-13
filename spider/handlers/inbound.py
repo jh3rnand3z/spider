@@ -7,11 +7,11 @@ import logging
 from tornado import gen
 from tornado import web
 
-from howler.system import inbound
-from howler.messages import inbound as models
-from howler.tools import errors
+from spider.system import inbound
+from spider.messages import inbound as models
+from spider.tools import errors
 
-from howler.handlers import BaseHandler
+from spider.handlers import BaseHandler
 
 
 class Handler(BaseHandler, inbound.inbound):
